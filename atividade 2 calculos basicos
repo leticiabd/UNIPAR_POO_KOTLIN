@@ -1,25 +1,37 @@
 fun main() {
-    // Declaração de variáveis
-    val nomeProduto: String = "Apple Iphone 15 Pro MAX"
-    val precoUnitario: Double = 12000.00
-    val quantidadeComprada: Int = 20
-    val taxaImposto: Double = 0.25  // 25% de imposto
-    val margemLucro: Double = 0.50  // 50% de margem de lucro desejada
 
-    // Exibindo as informações iniciais
-    println("\n Nome do Produto: $nomeProduto")
-    println("\n Preço Unitário: R$ $precoUnitario")
-    println("\n Quantidade Comprada: $quantidadeComprada")
-    println("\n Taxa de Imposto: ${taxaImposto * 100}%")
-    println("\n Margem de Lucro Desejada: ${margemLucro * 100}%")
+    val nome: String = "leticia"
+    var idade: Int = 20
+    var salarioBruto: Double = 5000.00
+    var mesesTrabalhados: Int = 11
+    var produtosComprados: Int = 40
+    var valorTotalGasto: Double = 1000.00
+    val descontoAnual: Double = 1540.00
 
-    val totalSemImposto = precoUnitario * quantidadeComprada
-    println("\n Total Sem Imposto: R$ $totalSemImposto")
+    println("\n --- Informação do Colaborador ---")
+    println("Nome: $nome")
+    println("Idade: $idade")
+    println("Salário Bruto: R$ $salarioBruto")
+    println("Meses Trabalhados: $mesesTrabalhados")
+    println("Produtos Comprados: $produtosComprados")
 
-    val totalComImposto = totalSemImposto * (1 + taxaImposto)
-    println("\n Total Com Imposto: R$ $totalComImposto")
+    //Calculando o salário mensal pelo número de meses trabalhados
+    val salarioMensal = salarioBruto / mesesTrabalhados
+    println("\n Salário Mensal Ajustado: R$ $salarioMensal")
 
+    //Calculando o salário anual bruto
+    val salarioAnualBruto = salarioBruto * mesesTrabalhados
+    println("\n Salário Anual Bruto: R$ $salarioAnualBruto")
 
-    val precoVenda = totalComImposto * (1 + margemLucro)
-    println("\n Preço de Venda Necessário: R$ $precoVenda")
+    //Subtraindo o valor fixo de desconto do salário anual bruto
+    val salarioAnualLiquido = salarioAnualBruto - descontoAnual
+    println("\nSalário Anual Líquido: R$ $salarioAnualLiquido")
+
+    //Calculando a média do valor gasto por produto
+    val mediaGastoPorProduto = valorTotalGasto / produtosComprados
+    println("\nMédia de Gasto por Produto: R$ $mediaGastoPorProduto")
+
+    //Conectando uma string que informe o nome da pessoa com o salário líquido e uma mensagem personalizada
+    val mensagemFinal = "\n Olá, $nome! \n Seu salário anual líquido é de R$ $salarioAnualLiquido. \n Continue trabalhando!"
+    println(mensagemFinal)
 }
